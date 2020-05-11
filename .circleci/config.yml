@@ -10,9 +10,22 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run test
-      - run: npm run build      
+      - run: npm run build  
+      
+  deploy:
+    docker:
+      - image: willhallonline/ansible:2.9-alpine
+    steps:
+      - attach_workspace:
+         at: .
+      - run:
+          command: ansible --help
+
 workflows:
   version: 2.1
   build:
     jobs:
       - build
+      - deploy:
+         requires:
+            - build
