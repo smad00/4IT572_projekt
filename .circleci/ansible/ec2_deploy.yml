@@ -14,6 +14,6 @@
         wait: yes
         count: 1
         #group: eshop
-        aws_access_key: "{{access_key}}"
-        aws_secret_key: "{{secret_key}}"
-        security_token: "{{session_token}}"
+        aws_access_key: "ASIA3FKSKWMESFDGHQN7"
+        aws_secret_key: "tCtKwntlfcXTpq3diTWsdAfy7qBChvdIqAo/T5RI"
+        security_token: "FwoGZXIvYXdzEPj//////////wEaDEEwU8Mwtl2HoqRGdCLFAYIYzFxo1rLb8xnXOJNjdQfSgN+8jhmrybtHjGD/BUNEk2F327q+rBWct+NLEjGKoxWy9l0oUScvCU9/foFVBoh3/Ey8zuibrv7+6rFPtubKtsG9r/+gA3Dcr5127iPfX6kvqbTh9Dkvis+xzLvZQqoXU1j33aM+oTTisJi8PSdmLItqaJ0Uq1pP89C6K0foc7l7TlLy7/LU7JCNhc8nz47uBYc0/RG8xAOUIyjkb99XhxoybXHr7Q/QSZp+48q5vWmisvVZKKbS5fUFMi0IMGj7+RlE1yS6rmovfmN3NLb8qLuvt6qvCHx7W4JAXzho41WZp/jjDvIEOFI="

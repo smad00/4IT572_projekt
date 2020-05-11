@@ -10,7 +10,11 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run test
-      - run: npm run build  
+      - run: npm run build
+      - persist_to_workspace:
+         root: .
+         paths:
+            - .
       
   deploy:
     docker:
@@ -19,7 +23,7 @@ jobs:
       - attach_workspace:
          at: .
       - run:
-          command: ansible --help
+          command: ansible-playbook ./ansible/ec2_deploy.yml
 
 workflows:
   version: 2.1
