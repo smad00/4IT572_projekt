@@ -28,7 +28,7 @@ jobs:
       - run:
           command: pip install boto boto3
       - run:
-          command: ansible-playbook ./ansible/ec2_deploy.yml --user ubuntu
+          command: ansible-playbook ./ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
 
 workflows:
   version: 2.1
