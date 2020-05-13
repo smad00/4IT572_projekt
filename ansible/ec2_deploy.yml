@@ -13,7 +13,47 @@
         assign_public_ip: yes
         wait: yes
         count: 1
-        #group: eshop
-        aws_access_key: "ASIA3FKSKWMESFDGHQN7"
-        aws_secret_key: "tCtKwntlfcXTpq3diTWsdAfy7qBChvdIqAo/T5RI"
-        security_token: "FwoGZXIvYXdzEPj//////////wEaDEEwU8Mwtl2HoqRGdCLFAYIYzFxo1rLb8xnXOJNjdQfSgN+8jhmrybtHjGD/BUNEk2F327q+rBWct+NLEjGKoxWy9l0oUScvCU9/foFVBoh3/Ey8zuibrv7+6rFPtubKtsG9r/+gA3Dcr5127iPfX6kvqbTh9Dkvis+xzLvZQqoXU1j33aM+oTTisJi8PSdmLItqaJ0Uq1pP89C6K0foc7l7TlLy7/LU7JCNhc8nz47uBYc0/RG8xAOUIyjkb99XhxoybXHr7Q/QSZp+48q5vWmisvVZKKbS5fUFMi0IMGj7+RlE1yS6rmovfmN3NLb8qLuvt6qvCHx7W4JAXzho41WZp/jjDvIEOFI="
+        group: eshop
+        aws_access_key: "ASIA3FKSKWMEV2GSILDS"
+        aws_secret_key: "eUeCys2RHbnq/kdXIX+p0vVrOJIQWA9ZYlYNwqG4"
+        security_token: "FwoGZXIvYXdzECcaDD6p2pnVkri4PJ0P4iLFAXwwXY2pDaHN5I0e8KjuB4C0i/A044CAL8ABWWx4bn0TMlVDzHMNHlrD/VZaxCxfhzzmzx2REYQmKDP9Q7iRIGvwx9jEWA+YiDHUOhNGfv5SRoTo83DkhOji7wgnzeVBN0e8JGZDW+4IMYsorxIcFfUNOMBipo8NFlD6crzJ83JzWKu6sYnsekfAYnDtPY8S/NpxipqpXbBAavpw/bouRWRtxiQdMDLlkw1btn6Q40/+RMa77Q8Ws10t+oJQVjHtrZ8hKQ35KOv17/UFMi0YMVQ4LdQ/20AoqsFmCZGqBd9GJB4QCP9Z6uBeUyyzKSaYqQBauDjOmm5dX8I="
+      register: ec2
+      
+    - name: Add instance host to group
+      add_host: hostname={{ item.public_dns_name }} groupname=launched
+      with_items: '{{ec2.instances}}'
+
+    - name: Wait for SSH connection
+      wait_for: host={{ item.public_dns_name }} port=22 delay=30 timeout=300 state=started
+      with_items: '{{ec2.instances}}'
+
+- name: Configure EC2
+  hosts: launched
+  connection: ssh
+
+  tasks:
+    - name: Install docker
+      apt: 
+        name: docker.io
+        state: present
+        update_cache: yes
+      become: yes
+    - service:
+        name: docker
+        state: started
+        enabled: yes
+      become: yes
+    - name: Get project files from git
+      git: 
+        repo: 'https://github.com/smad00/4IT572_projekt.git'
+        dest: ./app
+    - name: Build docker with eshop
+      shell: cd app && docker build -t myeshop:latest .
+      become: yes
+    - name: Run docker with eshop
+      shell: docker run -p 80:3000 myeshop
+      async: 45
+      poll: 0
+      become: yes
+    - wait_for: 
+        port: 80
