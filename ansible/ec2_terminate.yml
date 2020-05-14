@@ -20,8 +20,8 @@
         state: 'absent'
         #instance_tags:
             #app: eshop
-        #with_items: '{{ec2_instance_info.instance_ids}}'
-        with_items: '{{ec2_instance_info.instances}}'
+        with_items: '{{ec2_instance_info.instance_ids}}'
+        #with_items: '{{ec2_instance_info.instances}}'
         aws_access_key: "ASIA3FKSKWMEYBNQDMM3"
         aws_secret_key: "fL4LCE1x1tP0w04C1eokaMMLQdnYXVLAA6m6CrC+"
         security_token: "FwoGZXIvYXdzEDoaDH7Ta2F1EvBeBJqqoyLFAWb+FqIw1LhAtm870jNEMulkO36pldFmDf2JXL+NRtsLvy1wlEiLIvK6tAJne/gjf524JIhH6WFWnhV0MnHNGite9qBuOJhGBpRr0v3FaLPo0Hc0+keRIg22ih/Rm3LhKu4hDXc2cR4Qe6VwQ0bP/XQTcM+mu77tIK3UalhVltidqpyLElqtw5e4HDVX+rxQNo8twa2cJ32xmsr3RfLtK4lOmetlB4TvHPNR+zKd7h9QaK/uLbrhUAZQOXz/k7P4eJjz5eKfKIKM9PUFMi2RMLsWXAzeZGAANd+2xDOprCyW+1QNj4mcnfGJKfFJPNhzaEXgrACaiMEjrcc="
