@@ -5,6 +5,8 @@
   tasks:
     - name: Get running instances
       ec2_instance_info:
+        region: us-east-1
+        key_name: aws-key-pair
         filters:
           "tag:app": eshop
       register: ec2_instance_info
