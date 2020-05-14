@@ -1,6 +1,10 @@
 - name: Deploy to EC2
   hosts: localhost
   connection: local
+  vars:
+    access_key: ASIA3FKSKWMESGIKYMOA
+    secret_key: t9+mG3XQNmzDuFJlSfMaR/MrXVMvoBIvWnmaudX8
+    token: FwoGZXIvYXdzED4aDEB/Jm6nDFCGCMHwfiLFAbtSpwbH4mtYrvl098F5TXWzuvzE5wiuVuG8wGm2aRYvoGrgjdiEah4MmLekoiLUUPjRvRKAwv5Km5FK3mFKwDPsp3yO2CMxKYxK5asJKEaPjl1BV9ItbVtFINxPhHb7b+d5FE9x/EPY0rBJAXQ2uwqkuaZvdxbI/737bVxS7VnSwMeXqd0YL+C9Ve/UsBIdCeoYr988SaV2TAg+b3y6pQ4i9u2TjIH8jKG+M8IQilFg0rA7xvVlvkBiKI2f9haot16BievxKLb99PUFMi1ScXAqkuLRaXgt9cGqdgGSJ3UOA7vTBVeYFx6y3+K2VwYVx4NPy00emJSWoxo=
 
   tasks:
     - name: Launch EC2 instance
@@ -14,9 +18,11 @@
         wait: yes
         count: 1
         group: eshop
-        aws_access_key: "ASIA3FKSKWMESGIKYMOA"
-        aws_secret_key: "t9+mG3XQNmzDuFJlSfMaR/MrXVMvoBIvWnmaudX8"
-        security_token: "FwoGZXIvYXdzED4aDEB/Jm6nDFCGCMHwfiLFAbtSpwbH4mtYrvl098F5TXWzuvzE5wiuVuG8wGm2aRYvoGrgjdiEah4MmLekoiLUUPjRvRKAwv5Km5FK3mFKwDPsp3yO2CMxKYxK5asJKEaPjl1BV9ItbVtFINxPhHb7b+d5FE9x/EPY0rBJAXQ2uwqkuaZvdxbI/737bVxS7VnSwMeXqd0YL+C9Ve/UsBIdCeoYr988SaV2TAg+b3y6pQ4i9u2TjIH8jKG+M8IQilFg0rA7xvVlvkBiKI2f9haot16BievxKLb99PUFMi1ScXAqkuLRaXgt9cGqdgGSJ3UOA7vTBVeYFx6y3+K2VwYVx4NPy00emJSWoxo="
+        instance_tags:
+          app: eshop
+        aws_access_key: "{{ access_key }}"
+        aws_secret_key: "{{ secret_key }}"
+        security_token: "{{ token }}"
       register: ec2
       
     - name: Add instance host to group
