@@ -34,7 +34,13 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - build
+      - build:
+         filters:
+            branches:
+               only: master
       - deploy:
          requires:
             - build
+         filters:
+            branches:
+               only: master
