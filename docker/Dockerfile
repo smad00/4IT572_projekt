@@ -6,8 +6,8 @@ RUN apk add gcc \
             libffi \
             openssl
 
-RUN apk add --virtual build-dependencies python3-dev \
-            python2-dev \
+RUN apk add --virtual build-dependencies python2-dev \
+            python3-dev \            
             libffi-dev \            
             openssl-dev
 
