@@ -2,6 +2,7 @@ FROM alpine:3.11.6
 
 RUN apk add gcc \
             python3 \
+            python2-dev \
             python3-dev \
             py3-pip \
             libffi \
