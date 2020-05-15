@@ -1,6 +1,7 @@
 FROM alpine:3.11.6
 
-RUN apk add --update gcc \
+RUN apk add --update sudo \
+            gcc \
             python \
             py-pip \
             libffi \
