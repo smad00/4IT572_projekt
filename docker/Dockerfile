@@ -15,4 +15,4 @@ RUN pip install --user ansible
 
 RUN pip install --user boto boto3
 
-CMD ["ansible-playbook"]
+#CMD ["ansible-playbook"]
