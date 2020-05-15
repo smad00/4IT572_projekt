@@ -22,4 +22,4 @@ RUN mkdir /ansible && \
 
 WORKDIR /ansible
 
-#CMD ["ansible-playbook"]
+CMD ["ansible-playbook", "--version"]
