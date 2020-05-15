@@ -15,4 +15,8 @@ RUN pip install --user ansible
 
 RUN pip install --user boto boto3
 
+RUN mkdir /ansible
+
+WORKDIR /ansible
+
 #CMD ["ansible-playbook"]
