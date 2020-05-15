@@ -15,7 +15,9 @@ RUN pip install --user ansible
 
 RUN pip install --user boto boto3
 
-RUN mkdir /ansible
+RUN mkdir /ansible && \
+    mkdir -p /etc/ansible && \
+    echo 'localhost' > /etc/ansible/hosts
 
 WORKDIR /ansible
 
