@@ -18,15 +18,13 @@ jobs:
       
   deploy:
     docker:
-      - image: willhallonline/ansible:2.9-alpine
+      - image: smad00/ansible:1.0
     steps:
       - add_ssh_keys:
          fingerprints:
            - "bb:f4:6c:81:15:5f:b6:e4:78:a6:a5:2f:c0:03:4f:95"
       - attach_workspace:
          at: .
-      - run:
-          command: pip install boto boto3
       - run:
           command: ansible-playbook ./ansible/ec2_terminate.yml
       - run:
@@ -36,13 +34,7 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - build:
-         filters:
-            branches:
-               only: master
+      - build         
       - deploy:
          requires:
-            - build
-         filters:
-            branches:
-               only: master
+            - build         
