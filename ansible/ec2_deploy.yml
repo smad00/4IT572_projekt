@@ -2,9 +2,9 @@
   hosts: localhost
   connection: local
   vars:
-    access_key: ASIA3FKSKWMESGIKYMOA
-    secret_key: t9+mG3XQNmzDuFJlSfMaR/MrXVMvoBIvWnmaudX8
-    token: FwoGZXIvYXdzED4aDEB/Jm6nDFCGCMHwfiLFAbtSpwbH4mtYrvl098F5TXWzuvzE5wiuVuG8wGm2aRYvoGrgjdiEah4MmLekoiLUUPjRvRKAwv5Km5FK3mFKwDPsp3yO2CMxKYxK5asJKEaPjl1BV9ItbVtFINxPhHb7b+d5FE9x/EPY0rBJAXQ2uwqkuaZvdxbI/737bVxS7VnSwMeXqd0YL+C9Ve/UsBIdCeoYr988SaV2TAg+b3y6pQ4i9u2TjIH8jKG+M8IQilFg0rA7xvVlvkBiKI2f9haot16BievxKLb99PUFMi1ScXAqkuLRaXgt9cGqdgGSJ3UOA7vTBVeYFx6y3+K2VwYVx4NPy00emJSWoxo=
+    access_key: ASIA3FKSKWME2ZEO7ZHL
+    secret_key: CZPy2KlfCh0/Abmq72OdeB2VVKE3EcftHCHhH2f5
+    token: FwoGZXIvYXdzEHAaDOChv0IRKBJd41Vd9iLFARQsWfLhkVv+PcOB80N+sGgvzEIa3x8xB58Iqaz/eGUppd5X890WH+fLfquv59ZGi8F7kdewYP0Ac2Zk0UYkMujWNDlfVswDf6h9OrHFq2XqmCZyeAS0cQ2leenqCnuq/PGC6I/oWH/Y5AleY1bzGwkWnVF+FmO1+QCKy8oTgMHmrgqT279C733xOnkvYP+QrPNB73XS7tOom11b1hzn5mA9u1La0SzJAMIVlr1iTYPJR4bIcY9iKXdRDV3tCS1lFiknXhbUKO3t//UFMi1yF/CEINdoFyRIuyleJi9MXJslaE1eeLtZHTt0orIA67HSgOLMOjHskDouuI0=
 
   tasks:
     - name: Launch EC2 instance
