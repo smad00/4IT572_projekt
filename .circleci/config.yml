@@ -34,7 +34,8 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - build         
-      - deploy:
-         requires:
-            - build         
+      #- build         
+      - deploy
+      #:
+         #requires:
+         #   - build
