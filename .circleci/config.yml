@@ -33,8 +33,8 @@ jobs:
           command: echo $PATH
       - run:
           command: ansible-playbook ./ansible/ec2_terminate.yml
-      #- run:
-      #    command: ansible-playbook ./ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
+      - run:
+          command: ansible-playbook ./ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
 
 workflows:
   version: 2.1
