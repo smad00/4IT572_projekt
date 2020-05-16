@@ -12,16 +12,8 @@ RUN apk add --update --virtual build-dependencies python-dev \
             openssl-dev \
             build-base
 
-#RUN apk add ansible
-
 RUN pip install ansible
 
 RUN pip install boto boto3
 
-#RUN mkdir /ansible && \
-#    mkdir -p /etc/ansible && \
-#    echo 'localhost' > /etc/ansible/hosts
-
 WORKDIR /ansible
-
-#CMD ["ansible-playbook", "--version"]
