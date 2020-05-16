@@ -12,7 +12,9 @@ RUN apk add --update --virtual build-dependencies python-dev \
             openssl-dev \
             build-base
 
-RUN pip install --user ansible
+RUN apk add ansible
+
+#RUN pip install --user ansible
 
 RUN pip install --user boto boto3
 
