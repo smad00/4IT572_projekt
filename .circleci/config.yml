@@ -31,8 +31,8 @@ jobs:
       #   command: cd /  
       - run:
           command: echo $PATH
-      #- run:
-      #    command: ansible-playbook ./repo/ansible/ec2_terminate.yml
+      - run:
+          command: ansible-playbook ./repo/ansible/ec2_terminate.yml
       #- run:
       #    command: ansible-playbook ./repo/ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
 
