@@ -27,8 +27,8 @@ jobs:
       - attach_workspace:
          #at: .
          at: ./repo
-      - run:
-         command: cd /  
+      #- run:
+      #   command: cd /  
       - run:
           command: echo $PATH
       #- run:
