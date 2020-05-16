@@ -24,13 +24,14 @@ jobs:
          fingerprints:
            - "bb:f4:6c:81:15:5f:b6:e4:78:a6:a5:2f:c0:03:4f:95"
       - attach_workspace:
-         at: .
+         #at: .
+         at: ./repo
+      #- run:
+      #    command: ls
       - run:
-          command: ls
-      #- run:
-      #    command: ansible-playbook ../ansible/ec2_terminate.yml
-      #- run:
-      #    command: ansible-playbook ../ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
+          command: ansible-playbook ./repo/ansible/ec2_terminate.yml
+      - run:
+          command: ansible-playbook ./repo/ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
 
 workflows:
   version: 2.1
