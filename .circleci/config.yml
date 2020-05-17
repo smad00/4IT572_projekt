@@ -10,9 +10,34 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run test
-      - run: npm run build      
+      - run: npm run build
+      - persist_to_workspace:
+         root: .
+         paths:
+            - .
+      
+  deploy:
+    docker:
+      - image: smad00/ansible:2.0
+    steps:
+      - add_ssh_keys:
+         fingerprints:
+           - "bb:f4:6c:81:15:5f:b6:e4:78:a6:a5:2f:c0:03:4f:95"
+      - attach_workspace:
+         at: .
+      - run:
+          command: ansible-playbook ./ansible/ec2_terminate.yml
+      - run:
+          command: ansible-playbook ./ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
+
 workflows:
   version: 2.1
   build:
     jobs:
-      - build
+      - build         
+      - deploy:
+         requires:
+            - build
+         filters:
+            branches:
+               only: master

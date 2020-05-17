@@ -1,0 +1,34 @@
+- name: Terminate running EC2 instances
+  hosts: localhost
+  connection: local
+  vars:
+    access_key: ASIA3FKSKWMESRA2JCWO
+    secret_key: INuNXTie7pwNrrxAC0wSk6XnToSKmJAlG/KCIrIG
+    token: FwoGZXIvYXdzEIf//////////wEaDNbulg65+IPST0Ye7yLFAZMriuHQyWMSRgs8OA9m+QBmD8XL0PvrfM+Tx1w0WjeeS6Svn30M88NW2FMmH29jNI9KJNwsy6U5yJPSMZPgJeY15oQp5SoHn+HUOXmYLVfnOMycBrcbooj+tqJj8qg048UF412ncYRzu7/37qqSvbK5QDyPozX3X7lpSLC6HL6k39usl5H9HNRTn1UCHX7orxyrQuA8ZNBSKdX4K4V+k/j3mL8xKWPaPwEs4RH5sS3Iz7B0ffMyJjnc87hBvNQizEIKwLvaKPD8hPYFMi0fg3pyi8MvZg99CbcWzi1F+1HNkhFDDhKeq9wCHsiRRPL04uhzDU/M/FRt2hU=
+
+  tasks:
+    - name: Get running instances
+      ec2_instance_info:
+        region: us-east-1        
+        aws_access_key: "{{ access_key }}"
+        aws_secret_key: "{{ secret_key }}"
+        security_token: "{{ token }}"
+        filters:
+          "tag:app": eshop
+      register: ec2_instance_info
+
+    - name: Display info
+      debug: msg='{{item.instance_id}}'
+      with_items: '{{ec2_instance_info.instances}}'
+
+    - name: Terminate instances
+      ec2:
+        region: us-east-1
+        key_name: aws-key-pair
+        instance_ids: '{{item.instance_id}}'
+        state: 'absent'
+        wait: yes        
+        aws_access_key: "{{ access_key }}"
+        aws_secret_key: "{{ secret_key }}"
+        security_token: "{{ token }}"
+      with_items: '{{ec2_instance_info.instances}}'
