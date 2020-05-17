@@ -19,7 +19,8 @@ jobs:
   deploy:
     docker:
       #- image: smad00/ansible:1.0
-      - image: willhallonline/ansible:2.9-alpine
+      - image: smad00/ansible:2.0
+      #- image: willhallonline/ansible:2.9-alpine
     steps:
       - add_ssh_keys:
          fingerprints:
@@ -31,18 +32,18 @@ jobs:
       #   command: cd /  
       - run:
           command: echo $PATH
-      - run:
-          command: pip install boto boto3             
+      #- run:
+      #    command: pip install boto boto3             
       - run:
           command: ansible-playbook ./ansible/ec2_terminate.yml
       - run:
           command: ansible-playbook ./ansible/ec2_deploy.yml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
 
-#workflows:
-  #version: 2.1
-  #build:
-    #jobs:
-      #- build         
-      #- deploy:
-         #requires:
-         #   - build
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build         
+      - deploy:
+         requires:
+            - build
