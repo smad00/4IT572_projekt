@@ -2,9 +2,9 @@
   hosts: localhost
   connection: local
   vars:
-    access_key: ASIA3FKSKWME4T6FEP7M
-    secret_key: 4G4eJwW/RUDtoxquVbTpxIbY6uzjO9bzLizU1mkk
-    token: FwoGZXIvYXdzEHQaDND5v42/7TrcoNDDdyLFAXk8MNcCzZ2+/Oj9hlDvqLdbmwbXl8Xw3EgePIQxHG757bXF3txP5zOfjg01Iz6ion5ZVp2zigIJAggE+qX+JaVju36e90PDCkVxJ2Y+7tcCQrkWCLoNpnuysrg2NZQhIhEJOIScrj61MCBSHSizqXu8c9NQu4KLwlK7mdRjctD1rDdZ5hM2xX3gJjR68W9KpwA4GFebLSib1IRtPVQjK7RP8kf0OuFh5y4HbdoUUA2qYj5U27XPnidOAIGmoBBiwXT11g1HKPLvgPYFMi3hjYaWersGs7BqRHtY3LQSnq0W5xs9teRy8nso+VhL7xIibqRHwjfADcAlFU4=
+    access_key: ASIA3FKSKWMESRA2JCWO
+    secret_key: INuNXTie7pwNrrxAC0wSk6XnToSKmJAlG/KCIrIG
+    token: FwoGZXIvYXdzEIf//////////wEaDNbulg65+IPST0Ye7yLFAZMriuHQyWMSRgs8OA9m+QBmD8XL0PvrfM+Tx1w0WjeeS6Svn30M88NW2FMmH29jNI9KJNwsy6U5yJPSMZPgJeY15oQp5SoHn+HUOXmYLVfnOMycBrcbooj+tqJj8qg048UF412ncYRzu7/37qqSvbK5QDyPozX3X7lpSLC6HL6k39usl5H9HNRTn1UCHX7orxyrQuA8ZNBSKdX4K4V+k/j3mL8xKWPaPwEs4RH5sS3Iz7B0ffMyJjnc87hBvNQizEIKwLvaKPD8hPYFMi0fg3pyi8MvZg99CbcWzi1F+1HNkhFDDhKeq9wCHsiRRPL04uhzDU/M/FRt2hU=
 
   tasks:
     - name: Get running instances

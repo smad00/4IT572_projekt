@@ -5,7 +5,11 @@ RUN apk add --update sudo \
             python \
             py-pip \
             libffi \
-            openssl
+            openssl \
+            ca-certificates \
+            sshpass \
+            openssh-client \
+            rsync
 
 RUN apk add --update --virtual build-dependencies python-dev \
             libffi-dev \
