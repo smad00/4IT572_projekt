@@ -20,6 +20,6 @@
         group: eshop
         instance_tags:
           app: eshop
-        #aws_access_key: "{{ access_key }}"
-        #aws_secret_key: "{{ secret_key }}"
-        #security_token: "{{ token }}"
+        aws_access_key: "$access_key"
+        aws_secret_key: "$secret_key"
+        security_token: "$token"
