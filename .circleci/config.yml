@@ -44,7 +44,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          command: ansible-playbook ./ansible/ec2_launch.yml
+          command: ansible-playbook ./.circleci/ec2_launch.yml
 
 workflows:
   version: 2.1
