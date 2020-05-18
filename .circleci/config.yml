@@ -51,7 +51,9 @@ workflows:
   build:
     jobs:
       - build
-      - launch         
+      - launch:
+         requires:
+            - build
       - deploy:
          requires:
             - build
