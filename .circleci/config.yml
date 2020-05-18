@@ -33,10 +33,10 @@ jobs:
   launch:
     docker:
       - image: smad00/ansible:2.0
-        aws_auth:
-          aws_access_key_id: "$access_key"
-          aws_secret_access_key: "$secret_key"
-          aws_session_token: "$token"
+        environment:
+          aws_access_key: "$access_key"
+          aws_secret_key: "$secret_key"
+          security_token: "$token"
     steps:
       - add_ssh_keys:
           fingerprints:
