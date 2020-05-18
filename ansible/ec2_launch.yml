@@ -1,0 +1,25 @@
+- name: Deploy to EC2
+  hosts: localhost
+  connection: local
+  #vars:
+    #access_key: ASIA3FKSKWMESRA2JCWO
+    #secret_key: INuNXTie7pwNrrxAC0wSk6XnToSKmJAlG/KCIrIG
+    #token: FwoGZXIvYXdzEIf//////////wEaDNbulg65+IPST0Ye7yLFAZMriuHQyWMSRgs8OA9m+QBmD8XL0PvrfM+Tx1w0WjeeS6Svn30M88NW2FMmH29jNI9KJNwsy6U5yJPSMZPgJeY15oQp5SoHn+HUOXmYLVfnOMycBrcbooj+tqJj8qg048UF412ncYRzu7/37qqSvbK5QDyPozX3X7lpSLC6HL6k39usl5H9HNRTn1UCHX7orxyrQuA8ZNBSKdX4K4V+k/j3mL8xKWPaPwEs4RH5sS3Iz7B0ffMyJjnc87hBvNQizEIKwLvaKPD8hPYFMi0fg3pyi8MvZg99CbcWzi1F+1HNkhFDDhKeq9wCHsiRRPL04uhzDU/M/FRt2hU=
+
+  tasks:
+    - name: Launch EC2 instance
+      ec2:
+        instance_type: t2.micro
+        image: ami-085925f297f89fce1
+        region: us-east-1
+        key_name: aws-key-pair
+        vpc_subnet_id: subnet-11619177
+        assign_public_ip: yes
+        wait: yes
+        count: 1
+        group: eshop
+        instance_tags:
+          app: eshop
+        #aws_access_key: "{{ access_key }}"
+        #aws_secret_key: "{{ secret_key }}"
+        #security_token: "{{ token }}"
